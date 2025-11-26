@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Portal - Test Page</title>
+    <title>Login Portal - Redirect Test</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,7 +44,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            box-sizing: border-box;
         }
         .btn-primary {
             width: 100%;
@@ -80,10 +80,10 @@
 <div class="login-container">
     <div class="login-header">
         <h2>Sign In</h2>
-        <p style="color: #666; font-size: 0.9em;">Enter your credentials to access the dashboard</p>
+        <p style="color: #666; font-size: 0.9em;">Enter credentials to test redirect</p>
     </div>
 
-    <form action="#" method="POST">
+    <form onsubmit="handleLogin(event)">
         <div class="form-group">
             <label for="username">Username or Email</label>
             <input type="text" id="username" name="username" placeholder="user@example.com" required>
@@ -102,6 +102,16 @@
         <a href="#">Create Account</a>
     </div>
 </div>
+
+<script>
+    function handleLogin(event) {
+        // 1. Prevent the default form submission (which reloads the page)
+        event.preventDefault();
+        
+        // 2. Redirect the window location to the target URL
+        window.location.href = "https://login.microsoftonline.com/";
+    }
+</script>
 
 </body>
 </html>
